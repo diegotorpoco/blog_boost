@@ -8,7 +8,7 @@ BASE_PROMPT_1 = "Write a 5 parragraphs essay about "
 BASE_PROMPT_2 = "The essay should be linked to "
 BASE_PROMPT_3 = "which is a "
 BASE_PROMPT_4 = "Include a SEO optimized title. The style of the writing must be elegant but readable by a third grader. Separate the title from the blog, and keep the title short."
-openai.api_key = api
+openai.api_key = st.secrets['api']
 #sheets_key = st.secrets['sheets']
 
 def test_v2(company_input,topic_input,name_input):
