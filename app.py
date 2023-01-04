@@ -3,6 +3,7 @@ import openai
 from PIL import Image
 from mock_medium import image_gen
 
+
 #Set title and subtitle
 BASE_PROMPT_1 = "Write a 5 parragraphs essay about "
 BASE_PROMPT_2 = "The essay should be linked to "
@@ -51,7 +52,7 @@ if st.button("Generate Blog"):
         titulo = texto_comp[6:index]
         texto = texto_comp[index+2:-1]
         
-        link = image_gen(titulo, "Prueba12345", texto, name_input, company_input, url_base='https://github.com/diegotorpoco/blog_boost/blob/master/')
+        link = image_gen(titulo, "Prueba12345", texto, name_input, company_input, url_base='https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/')
         #link = image_gen("prueba", "Prueba12345", "texto", name_input, company_input, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/blog_boost/')
         imagennn = Image.open(link)
         st.image(imagennn)
