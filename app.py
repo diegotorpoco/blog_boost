@@ -2,7 +2,6 @@ import streamlit as st
 import openai
 from PIL import Image
 from mock_medium import image_gen
-from constants import api
 
 #Set title and subtitle
 BASE_PROMPT_1 = "Write a 5 parragraphs essay about "
