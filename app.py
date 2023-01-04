@@ -51,7 +51,7 @@ if st.button("Generate Blog"):
         titulo = texto_comp[6:index]
         texto = texto_comp[index+2:-1]
         
-        link = image_gen(titulo, "Prueba12345", texto, name_input, company_input, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/blog_boost/')
+        link = image_gen(titulo, "Prueba12345", texto, name_input, company_input, url_base='https://github.com/diegotorpoco/blog_boost.git')
         #link = image_gen("prueba", "Prueba12345", "texto", name_input, company_input, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/blog_boost/')
         imagennn = Image.open(link)
         st.image(imagennn)
