@@ -72,10 +72,10 @@ def image_gen(titulo, subtitulo_1, text, empresa, empresa_blurb, url_base = '/co
 
 
     # Save the edited image
-    image.save(url_base+"edited_mockup.jpg")
+    # image.save(url_base+"edited_mockup.jpg")
 
-    mockup = url_base+"edited_mockup.jpg"
-    return mockup
+    # mockup = url_base+"edited_mockup.jpg"
+    return image
 
 #titulo = "Using SHAP with Cross-Validation in Python" #Literalmente el tipo de blog que quiere la persona
 #subtitulo_1 = "The importance of validating data" #Resultado de prompt: Subtitle for X
