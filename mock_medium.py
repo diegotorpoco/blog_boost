@@ -53,15 +53,15 @@ def image_gen(titulo, subtitulo_1, text, empresa, empresa_blurb, url_base = '/co
     mockup = url_base+"edited_mockup.jpg"
     return mockup
 
-titulo = "Using SHAP with Cross-Validation in Python" #Literalmente el tipo de blog que quiere la persona
-subtitulo_1 = "The importance of validating data" #Resultado de prompt: Subtitle for X
-subtitulo_2 = "Introduction" #Solo introducción
+#titulo = "Using SHAP with Cross-Validation in Python" #Literalmente el tipo de blog que quiere la persona
+#subtitulo_1 = "The importance of validating data" #Resultado de prompt: Subtitle for X
+#subtitulo_2 = "Introduction" #Solo introducción
 #Core prompt
-text = "In many situations, machine learning models are preferred over traditional linear models because of their superior predictive performance and their ability to handle complex nonlinear data. However, a common criticism of machine learning models is their lack of interpretability. For example, ensemble methods such as XGBoost and Random Forest, combine the results of many individual learners to generate their results. Although this often leads to superior performance, it makes it hard to know the contribution of each feature in the dataset to the output. In many situations, machine learning models are preferred over traditional linear models because of their superior predictive performance and their ability to handle complex nonlinear data. However, a common criticism of machine learning models is their lack of interpretability. For example, ensemble methods such as XGBoost and Random Forest, combine the results of many individual learners to generate their results. Although this often leads to superior performance, it makes it hard to know the contribution of each feature in the dataset to the output." 
-empresa = "Dan Kirk" #El nombre de la empresa
-empresa_blurb = "Researcher at Wageningen University Research, MSc Nutrition Health and BSc Biochemistry, practicing data science and lifetime natural bodybuilder." #La minidescripción de la persona
+#text = "In many situations, machine learning models are preferred over traditional linear models because of their superior predictive performance and their ability to handle complex nonlinear data. However, a common criticism of machine learning models is their lack of interpretability. For example, ensemble methods such as XGBoost and Random Forest, combine the results of many individual learners to generate their results. Although this often leads to superior performance, it makes it hard to know the contribution of each feature in the dataset to the output. In many situations, machine learning models are preferred over traditional linear models because of their superior predictive performance and their ability to handle complex nonlinear data. However, a common criticism of machine learning models is their lack of interpretability. For example, ensemble methods such as XGBoost and Random Forest, combine the results of many individual learners to generate their results. Although this often leads to superior performance, it makes it hard to know the contribution of each feature in the dataset to the output." 
+#empresa = "Dan Kirk" #El nombre de la empresa
+#empresa_blurb = "Researcher at Wageningen University Research, MSc Nutrition Health and BSc Biochemistry, practicing data science and lifetime natural bodybuilder." #La minidescripción de la persona
 
-link = image_gen(titulo, subtitulo_1, text, empresa, empresa_blurb, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/')
-prueba = Image.open(link)
+#link = image_gen(titulo, subtitulo_1, text, empresa, empresa_blurb, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/')
+#prueba = Image.open(link)
 #prueba.show()
 
