@@ -2,22 +2,46 @@
 
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
-
-test = ['titulo.otf','subtitulo.ttf','texto.ttf','empresa.otf']
-url_base = '/content/'
+import os
+from io import BytesIO
+import requests
 
 def image_gen(titulo, subtitulo_1, text, empresa, empresa_blurb, url_base = '/content/'):
     
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/mockmedium.jpg"
+
+    response = requests.get(url)
+    image = Image.open(BytesIO(response.content))
+
     # Open the image file
-    image = Image.open(url_base+"mockmedium.jpg")
+    #image = Image.open(url_base+"mockmedium.jpg")
     
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/titulo.otf"
+    response = requests.get(url)
+    # response.content
+    titulo_font = ImageFont.truetype(BytesIO(response.content), 36)
     # Choose a font and font size
-    titulo_font = ImageFont.truetype(url_base+'titulo.otf', 36)
-    subtitulo_1_font = ImageFont.truetype(url_base+'subtitulo.ttf', 30)
-    subtitulo_2_font = ImageFont.truetype(url_base+'subtitulo.ttf', 25)
-    text_font = ImageFont.truetype(url_base+'texto.ttf', 25)
-    empresa_font = ImageFont.truetype(url_base+'empresa.otf', 22)
-    empresa_blurb_font = ImageFont.truetype(url_base+'empresa.otf', 20)
+    #titulo_font = ImageFont.truetype(url_base+'titulo.otf', 36)
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/subtitulo.ttf"
+    response = requests.get(url)
+    subtitulo_1_font = ImageFont.truetype(BytesIO(response.content), 30)
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/subtitulo.ttf"
+    response = requests.get(url)
+    subtitulo_2_font = ImageFont.truetype(BytesIO(response.content), 25)
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/texto.ttf"
+    response = requests.get(url)
+    text_font = ImageFont.truetype(BytesIO(response.content), 25)
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/empresa.otf"
+    response = requests.get(url)
+    empresa_font = ImageFont.truetype(BytesIO(response.content), 22)
+    url = "https://raw.githubusercontent.com/diegotorpoco/blog_boost/master/empresa.otf"
+    response = requests.get(url)
+    empresa_blurb_font = ImageFont.truetype(BytesIO(response.content), 20)
+    #subtitulo_1_font = ImageFont.truetype(url_base+'subtitulo.ttf', 30)
+    #subtitulo_2_font = ImageFont.truetype(url_base+'subtitulo.ttf', 25)
+    #text_font = ImageFont.truetype(url_base+'texto.ttf', 25)
+    #empresa_font = ImageFont.truetype(url_base+'empresa.otf', 22)
+    #empresa_blurb_font = ImageFont.truetype(url_base+'empresa.otf', 20)
 
     subtitulo_1 = "The importance of validating data" #Resultado de prompt: Subtitle for X
     
@@ -34,7 +58,7 @@ def image_gen(titulo, subtitulo_1, text, empresa, empresa_blurb, url_base = '/co
 
     # Create an ImageDraw object
     draw = ImageDraw.Draw(image)
-
+    subtitulo_2 = "Introduccion"
     # Add the text to the image
     draw.text((130, 30), empresa, font=empresa_font, fill=(0, 0, 0))
     draw.text((50, 140), titulo, font=titulo_font, fill=(0, 0, 0))
