@@ -28,6 +28,7 @@ def test_v2(company_input,topic_input,name_input):
 st.title("Blog Boost")
 st.subheader("Blog Boost allows SMBs to create content in order to increase website traffic.")
 
+### CAMBIOS LALALA
 
 # Add a textbox and store the input in a variable
 company_input = st.text_area("What is your business about?","",height=5,disabled=False,
