@@ -2,14 +2,31 @@ import streamlit as st
 import openai
 from PIL import Image
 from mock_medium import image_gen
+import gspread 
+from google.oauth2 import service_account
 import numpy as np
+
+
 #Set title and subtitle
 BASE_PROMPT_1 = "Write a 5 parragraphs essay about "
 BASE_PROMPT_2 = "The essay should be linked to "
 BASE_PROMPT_3 = "which is a "
 BASE_PROMPT_4 = "Include a SEO optimized title. The style of the writing must be elegant but readable by a third grader. Separate the title from the blog, and keep the title short."
 openai.api_key = st.secrets['api']
-#sheets_key = st.secrets['sheets']
+
+
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+    ],
+)
+
+sheet_url = st.secrets["private_gsheets_url"]
+gc = gspread.authorize(credentials=credentials)
+spreadsheet = gc.open_by_url(sheet_url)
+sheet = spreadsheet.get_worksheet(0)
+
 
 def test_v2(company_input,topic_input,name_input):
     response_final = openai.Completion.create(
@@ -23,6 +40,11 @@ def test_v2(company_input,topic_input,name_input):
     best_of=1
     )
     return response_final
+
+
+def save_prompt(company_input,topic_input,name_input,prompt):
+    data = [company_input,topic_input,name_input,prompt]
+    sheet.append_row(data)
 
 
 st.title("Blog Boost")
@@ -44,7 +66,7 @@ if st.button("Generate Blog"):
     with st.spinner('Wait for it...'):
         resp = test_v2(company_input=company_input,topic_input=topic_input,name_input=name_input)
         st.write(resp['choices'][0]['text'])
-        
+        save_prompt(company_input=company_input,topic_input=topic_input,name_input=name_input,prompt=resp['choices'][0]['text'])
         texto_comp = resp['choices'][0]['text'][2:-1]
         if "\n" in texto_comp:
             index = texto_comp.find("\n")
