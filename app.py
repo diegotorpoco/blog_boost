@@ -5,7 +5,7 @@ from mock_medium import image_gen
 import gspread 
 from google.oauth2 import service_account
 import numpy as np
-
+from streamlit_card import card
 
 #Set title and subtitle
 BASE_PROMPT_1 = "Write a 5 parragraphs essay about "
@@ -15,66 +15,74 @@ BASE_PROMPT_4 = "Include a SEO optimized title. The style of the writing must be
 openai.api_key = st.secrets['api']
 
 
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
-)
-
-sheet_url = st.secrets["private_gsheets_url"]
-gc = gspread.authorize(credentials=credentials)
-spreadsheet = gc.open_by_url(sheet_url)
-sheet = spreadsheet.get_worksheet(0)
-
-
-def test_v2(company_input,topic_input,name_input):
-    response_final = openai.Completion.create(
-    model="text-davinci-003",
-    prompt=BASE_PROMPT_1+topic_input+BASE_PROMPT_2+name_input+BASE_PROMPT_3+company_input+BASE_PROMPT_4+'\n\n',
-    temperature=0.85, #0.55 fue bueno
-    max_tokens=512,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0,
-    best_of=1
+st.set_page_config(
+    layout="wide",
+    initial_sidebar_state="collapsed"
     )
-    return response_final
+
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style/style.css")
 
 
-def save_prompt(company_input,topic_input,name_input,prompt):
-    data = [company_input,topic_input,name_input,prompt]
-    sheet.append_row(data)
+with st.container():
+    st.subheader("Hola emprendedores :wave: somos Bruno:owl: y Diego:robot_face:")
+    st.title("Nula KIT")
+    st.write("Entiendemos que a veces puede ser difícil encontrar ideas para crear contenido en línea, especialmente cuando la inspiración es nula.")
+    st.write("Hemos creado Nula Kit las cuales van a ser una serie de herramientas para ayudarte a escribir tu contenido :sparkling_heart:.")
+    st.write("##")
+    
 
 
-st.title("Blog Boost")
-st.subheader("Blog Boost allows SMBs to create content in order to increase website traffic.")
+col1, col2, col3 = st.columns(3, gap="small")
+
+with col1:
+
+    card(
+    title="Instagram",
+    text="Ads, posts, bios y DMs!",
+    image="https://eltallerdehector.com/wp-content/uploads/2022/06/cd939-logo-instagram-png.png",
+    url="http://localhost:8501/Instagram",
+    )
+   
+
+with col2:
+   
+   card(
+    title="Blogs",
+    text="Ideas, titulos y blogs!",
+    image="https://cdn.mos.cms.futurecdn.net/uazw6gFQuEC29mxMM55Tpb.jpg",
+    url="http://localhost:8501/Blogs",
+    )
+
+with col3:
+   
+   card(
+    title="Coming soon!",
+    text="Cuentanos qué quisieras :)",
+    image="https://st.depositphotos.com/1654249/4904/i/600/depositphotos_49041297-stock-photo-3d-man-squatting-and-confusing.jpg",
+    url="https://www.google.com",
+    )
 
 
-# Add a textbox and store the input in a variable
-company_input = st.text_area("What is your business about?","",height=5,disabled=False,
-placeholder="Buildspace is a e-learning community-driven webiste, that aids builders to unite and explore promising domains and ship meaningful products ")
+with st.container():
+    st.write("---")
+    st.header("Escríbenos qué piensas!")
+    st.write("##")
 
-topic_input = st.text_area("include the topic of the blog you want: ","",height=5,disabled=False,
-placeholder="Edtech, Community, Web3, AI")
-
-name_input = st.text_area("include the name of your company: ","",height=5,disabled=False,
-placeholder="Buildspace, Facebook, Tesla")
-
-if st.button("Generate Blog"):  
-    # if (company_input) and (topic_input):
-    with st.spinner('Wait for it...'):
-        resp = test_v2(company_input=company_input,topic_input=topic_input,name_input=name_input)
-        st.write(resp['choices'][0]['text'])
-        save_prompt(company_input=company_input,topic_input=topic_input,name_input=name_input,prompt=resp['choices'][0]['text'])
-        texto_comp = resp['choices'][0]['text'][2:-1]
-        if "\n" in texto_comp:
-            index = texto_comp.find("\n")
-        titulo = texto_comp[6:index]
-        texto = texto_comp[index+2:-1]
-        
-        link = image_gen(titulo, "Prueba12345", texto, name_input, company_input, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/blog_boost/')
-        #link = image_gen("prueba", "Prueba12345", "texto", name_input, company_input, url_base='C:/Users/bruno/Desktop/Drive/Bruno/SEO/blog_boost/')
-        # imagennn = Image.open(link)
-        st.image(np.asarray(link))
-        st.success('Done!')
+    contact_form = """
+    <form action="https://formsubmit.co/164691b315ff3023a9238892c3d2528f" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <textarea name="message" placeholder="Mensaje" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    """
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.markdown(contact_form, unsafe_allow_html=True)
+    with right_column:
+        st.empty()
