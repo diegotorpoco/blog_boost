@@ -28,10 +28,10 @@ local_css("style/style.css")
 
 
 with st.container():
-    st.subheader("Hola emprendedores :wave: somos Bruno:owl: y Diego:robot_face:")
-    st.title("Nula KIT")
-    st.write("Entiendemos que a veces puede ser difícil encontrar ideas para crear contenido en línea, especialmente cuando la inspiración es nula.")
-    st.write("Hemos creado Nula Kit las cuales van a ser una serie de herramientas para ayudarte a escribir tu contenido :sparkling_heart:.")
+    st.subheader("Hello :wave: We are  Bruno:owl: & Diego:robot_face:")
+    st.title("Blog Boost")
+    st.write("We understand that sometimes it can be difficult to find ideas for creating online content, especially when inspiration is lacking..")
+    st.write("We have created Blog Boost which will be a series of tools to help you write your content. :sparkling_heart:.")
     st.write("##")
     
 
@@ -42,7 +42,7 @@ with col1:
 
     card(
     title="Instagram",
-    text="Ads, posts, bios y DMs!",
+    text="Soon -  Ads, posts, bios & DMs!",
     image="https://eltallerdehector.com/wp-content/uploads/2022/06/cd939-logo-instagram-png.png",
     url="https://diegotorpoco-blog-boost-pagesinstagram-gspread-implement-vvzu82.streamlit.app/",
     )
@@ -52,7 +52,7 @@ with col2:
    
    card(
     title="Blogs",
-    text="Ideas, titulos y blogs!",
+    text="Ideas, Titles & Blogs!",
     image="https://cdn.mos.cms.futurecdn.net/uazw6gFQuEC29mxMM55Tpb.jpg",
     url="https://diegotorpoco-blog-boost-pagesblogs-gspread-implementacio-j4pdt3.streamlit.app/",
     )
@@ -61,7 +61,7 @@ with col3:
    
    card(
     title="Coming soon!",
-    text="Cuentanos qué quisieras :)",
+    text="Tell us what else you would like below :)",
     image="https://st.depositphotos.com/1654249/4904/i/600/depositphotos_49041297-stock-photo-3d-man-squatting-and-confusing.jpg",
     url="https://www.google.com",
     )
