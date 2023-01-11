@@ -44,7 +44,7 @@ with col1:
     title="Instagram",
     text="Ads, posts, bios y DMs!",
     image="https://eltallerdehector.com/wp-content/uploads/2022/06/cd939-logo-instagram-png.png",
-    url="http://localhost:8501/Instagram",
+    url="https://diegotorpoco-blog-boost-pagesinstagram-gspread-implement-vvzu82.streamlit.app/",
     )
    
 
@@ -54,7 +54,7 @@ with col2:
     title="Blogs",
     text="Ideas, titulos y blogs!",
     image="https://cdn.mos.cms.futurecdn.net/uazw6gFQuEC29mxMM55Tpb.jpg",
-    url="http://localhost:8501/Blogs",
+    url="https://diegotorpoco-blog-boost-pagesblogs-gspread-implementacio-j4pdt3.streamlit.app/",
     )
 
 with col3:
