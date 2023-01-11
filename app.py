@@ -69,15 +69,15 @@ with col3:
 
 with st.container():
     st.write("---")
-    st.header("Escríbenos qué piensas!")
+    st.header("Tell us what you think!")
     st.write("##")
 
     contact_form = """
     <form action="https://formsubmit.co/164691b315ff3023a9238892c3d2528f" method="POST">
         <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Nombre" required>
-        <input type="email" name="email" placeholder="Correo" required>
-        <textarea name="message" placeholder="Mensaje" required></textarea>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
         <button type="submit">Send</button>
     </form>
     """
