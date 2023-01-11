@@ -1,7 +1,7 @@
 import streamlit as st 
 import openai
 from PIL import Image
-from mock_medium import image_gen
+from ..mock_medium import image_gen
 import numpy as np
 from streamlit_card import card
 import gspread 
