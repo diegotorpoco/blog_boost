@@ -3,10 +3,6 @@ import openai
 import gspread 
 from google.oauth2 import service_account
 
-st.set_page_config(
-    layout='wide',
-    initial_sidebar_state='collapsed'
-)
 
 openai.api_key = st.secrets['api']
 
