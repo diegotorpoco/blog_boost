@@ -2,6 +2,12 @@ import streamlit as st
 import openai 
 import gspread 
 from google.oauth2 import service_account
+
+st.set_page_config(
+    layout='wide',
+    initial_sidebar_state='collapsed'
+)
+
 openai.api_key = st.secrets['api']
 
 credentials = service_account.Credentials.from_service_account_info(
