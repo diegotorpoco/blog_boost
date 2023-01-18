@@ -76,7 +76,7 @@ if content == 'Ideas':
         placeholder.empty()
         st.write("Here are some are possible ideas for content in Instagram 👀")
         st.write(resp['choices'][0]['text'])
-        save_prompt(bis_desc,feature_desc,bis_name,resp['choices'][0]['text'],tone=tone,content=content)
+        save_prompt(bis_desc,'None',bis_name,resp['choices'][0]['text'],tone=tone,content=content)
 
 
     
