@@ -7,7 +7,7 @@ from google.oauth2 import service_account
 openai.api_key = st.secrets['api']
 def test_v2(company_input,name_input,feature_desc=None,tone=None,content='Descripcion Para Publicacion'):
     if content == 'Descripcion Para Publicacion':
-        prompt = company_input+'\n\n'+f"Haz una lista con 5 descripciones atractivas y con hashtags para una publicación de Instagram de la empresa descrita anteriormente. La publicación va a ser sobre {feature_desc}. Incluir emojis de ser necesario, los hashtags deben ser en español."
+        prompt = company_input+'\n\n'+f"Haz una lista con 5 descripciones atractivas y con hashtags para una publicación de Instagram de la empresa descrita anteriormente. La publicación va a ser sobre {feature_desc}. SIEMPRE incluye dos emojis distintos en el texto, y al final del texto hashtag que esten en español."
     else:                                                                                    
         prompt = company_input+'\n\n'+f"Haz una lista con 8 ideas para contenido de Instagram para la empresa descrita anteriormente. Que sean para generar mas {tone}"
 
@@ -16,7 +16,7 @@ def test_v2(company_input,name_input,feature_desc=None,tone=None,content='Descri
         model="text-davinci-003",
         prompt=prompt,
         temperature=0.7,
-        max_tokens=256,
+        max_tokens=1400,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
